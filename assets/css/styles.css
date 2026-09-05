@@ -576,3 +576,78 @@ h1{letter-spacing:-.025em}
   .story-footer{align-items:flex-start;flex-direction:column;gap:5px}
   .when-page .month-nav-wrap{margin-inline:2%}
 }
+
+/* ===== V5 hero balance + Nikki section fill ===== */
+/* Align the hero copy with the wider premium header so the left side is intentionally used. */
+.home-page .hero .hero-content{
+  width:min(1460px,92%);
+  max-width:1460px;
+  padding-right:430px;
+}
+.home-page .hero .hero-content h1,
+.home-page .hero .hero-content p,
+.home-page .hero .hero-actions,
+.home-page .hero .eyebrow{
+  margin-left:0;
+}
+.home-page .hero-card{
+  right:max(5%,calc((100vw - 1460px)/2 + 10px));
+  width:min(350px,31vw);
+}
+
+/* Nikki section: make the image column occupy the same visual height as the content column. */
+@media(min-width:1001px){
+  .home-page #about{padding-top:58px;padding-bottom:58px}
+  .home-page #about .intro-grid{
+    align-items:stretch;
+    gap:48px;
+  }
+  .home-page #about .nikki-frame{
+    height:100%;
+    min-height:690px;
+    padding:0 18px 0 0;
+    display:flex;
+    align-items:stretch;
+  }
+  .home-page #about .nikki-frame:before{
+    inset:34px 0 0 46px;
+  }
+  .home-page #about .nikki-frame img{
+    width:100%;
+    height:100%;
+    min-height:690px;
+    object-fit:cover;
+    object-position:center 44%;
+    border-radius:32px;
+  }
+  .home-page #about .intro-copy{
+    align-self:center;
+    padding:6px 0;
+  }
+  .home-page #about .nikki-badge{
+    bottom:24px;
+  }
+}
+
+@media(min-width:1001px) and (max-width:1320px){
+  .home-page .hero .hero-content{
+    width:min(1240px,92%);
+    max-width:1240px;
+    padding-right:365px;
+  }
+  .home-page .hero-card{
+    right:4%;
+    width:min(320px,30vw);
+  }
+}
+
+@media(max-width:1000px){
+  .home-page .hero .hero-content{
+    width:min(92%,760px);
+    max-width:760px;
+    padding-right:0;
+  }
+  .home-page #about .nikki-frame{
+    padding-top:0;
+  }
+}
