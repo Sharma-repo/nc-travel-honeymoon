@@ -1,4 +1,5 @@
 (function(){
+  document.documentElement.classList.add('js');
   const header=document.querySelector('.site-header');
   const onScroll=()=>header?.classList.toggle('scrolled',window.scrollY>15);
   onScroll();
@@ -21,6 +22,16 @@
     if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}
   }),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Journey animation is intentionally repeatable. Cards animate in when they
+  // enter the viewport and reset after they leave, so scrolling back replays it.
+  const journeyObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    entry.target.classList.toggle('in-view',entry.isIntersecting);
+  }),{threshold:.26,rootMargin:'-6% 0px -14% 0px'});
+  document.querySelectorAll('.journey-scroll').forEach((step,index)=>{
+    step.style.setProperty('--journey-index',index);
+    journeyObserver.observe(step);
+  });
 
   document.querySelectorAll('[data-mailto-form]').forEach(form=>{
     form.addEventListener('submit',e=>{
