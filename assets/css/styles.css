@@ -493,3 +493,86 @@ h1{letter-spacing:-.025em}
   .tailor-cta{grid-template-columns:1fr;padding:23px}
   .tailor-cta .btn{width:100%}
 }
+
+
+/* ===== V4 compactness, navigation and presentation refinements ===== */
+/* Keep the horizontal month chooser where it belongs in the document flow. */
+.when-page .month-nav-wrap{
+  position:relative;
+  top:auto;
+  z-index:2;
+  margin-top:8px;
+}
+
+/* Home page: reduce unnecessary vertical travel without changing the established layout. */
+.home-page .section{padding:72px 0}
+.home-page .section-sm{padding:46px 0}
+.home-page .intro-grid{gap:48px}
+.home-page .nikki-frame{padding-top:8px}
+.home-page .nikki-frame img{
+  height:540px;
+  image-rendering:auto;
+  filter:contrast(1.025) saturate(1.025);
+}
+.home-page .intro-copy p{margin-bottom:.8em}
+.home-page .service-points{margin:19px 0;gap:10px}
+.home-page .service-point{padding:13px 14px}
+.home-page .card-grid{margin-top:28px}
+.home-page .gift-shell{padding:40px}
+
+/* Sound familiar: compact editorial strip, four cards in one row on desktop. */
+.sound-familiar-section{padding:48px 0 52px!important}
+.sound-head{display:grid;grid-template-columns:1.35fr .65fr;gap:44px;align-items:end}
+.sound-head h2{font-size:clamp(2rem,3.25vw,3rem)!important;line-height:1.02;margin:0;max-width:780px!important}
+.sound-head p{font-size:.82rem;color:var(--muted);margin:0 0 3px;max-width:450px}
+.sound-grid-compact{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:none;margin-top:24px}
+.sound-grid-compact .sound-card{
+  min-height:108px;
+  display:grid;
+  grid-template-columns:36px 1fr;
+  gap:12px;
+  align-items:start;
+  padding:18px 18px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:0 10px 28px rgba(65,48,36,.035);
+}
+.sound-grid-compact .sound-mark{width:34px;height:34px;font-size:.58rem}
+.sound-grid-compact h3{font-size:1.12rem;line-height:1.1;margin:3px 0 0}
+
+/* Testimonials + wedding support: give the section a clear purpose while keeping it short. */
+.stories-section{padding:58px 0!important}
+.stories-head{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:end;margin-bottom:24px}
+.stories-head h2{font-size:clamp(2.15rem,3.6vw,3.35rem);line-height:1.03;margin:0;max-width:680px}
+.stories-head p{margin:0;color:var(--muted);font-size:.82rem;max-width:520px}
+.stories-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.story-card{border:1px solid var(--line);border-radius:20px;background:#fff;padding:21px 23px;min-height:0;box-shadow:0 10px 28px rgba(65,48,36,.035)}
+.story-card h3{font-size:1.5rem;line-height:1.08;margin:8px 0 11px}
+.story-card p{font-size:.74rem;color:var(--muted);margin:0}
+.story-label{font-size:.58rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold-dark);font-weight:800}
+.story-footer{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid var(--line);padding-top:11px;margin-top:14px}
+.story-footer a,.story-link{font-size:.68rem;font-weight:800;color:var(--brown);white-space:nowrap}
+.story-service{background:linear-gradient(135deg,#fff,#fbf6ef)}
+.story-service .story-link{display:inline-block;margin-top:12px}
+
+/* Destination region selection should land at the actual start of the selected content. */
+.destination-content-section{scroll-margin-top:118px}
+.region-card{scroll-margin-top:118px}
+
+@media(max-width:1000px){
+  .home-page .nikki-frame img{height:500px}
+  .sound-head,.stories-head{grid-template-columns:1fr;gap:12px}
+  .sound-grid-compact{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .home-page .section{padding:58px 0}
+  .home-page .section-sm{padding:40px 0}
+  .home-page .nikki-frame img{height:430px}
+  .sound-familiar-section{padding:40px 0!important}
+  .sound-grid-compact,.stories-grid{grid-template-columns:1fr}
+  .sound-grid-compact .sound-card{min-height:0}
+  .stories-section{padding:46px 0!important}
+  .story-footer{align-items:flex-start;flex-direction:column;gap:5px}
+  .when-page .month-nav-wrap{margin-inline:2%}
+}
