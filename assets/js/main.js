@@ -338,3 +338,34 @@ window.addEventListener('DOMContentLoaded',()=>{
 
   updateStep();
 });
+
+
+/* Homepage hero video sound control */
+window.addEventListener('DOMContentLoaded',()=>{
+  const video=document.getElementById('honeymoonHeroVideo');
+  const soundButton=document.querySelector('[data-hero-sound]');
+  if(!video || !soundButton) return;
+
+  const label=soundButton.querySelector('[data-hero-sound-label]');
+
+  const syncSoundUI=()=>{
+    const unmuted=!video.muted;
+    soundButton.classList.toggle('is-unmuted',unmuted);
+    soundButton.setAttribute('aria-pressed',String(unmuted));
+    soundButton.setAttribute('aria-label',unmuted ? 'Mute honeymoon video' : 'Unmute honeymoon video');
+    if(label) label.textContent=unmuted ? 'Mute' : 'Sound on';
+  };
+
+  video.muted=true;
+  video.defaultMuted=true;
+  video.play().catch(()=>{});
+  syncSoundUI();
+
+  soundButton.addEventListener('click',()=>{
+    video.muted=!video.muted;
+    if(video.paused) video.play().catch(()=>{});
+    syncSoundUI();
+  });
+
+  video.addEventListener('volumechange',syncSoundUI);
+});

@@ -1216,3 +1216,123 @@ h1{letter-spacing:-.025em}
 body.planner-open{overflow:hidden}
 @media(max-width:900px){.planner-modal{padding:12px}.planner-dialog{width:min(720px,98vw);height:min(780px,94vh);grid-template-columns:1fr}.planner-aside{display:none}.planner-form{padding:44px 28px 24px}.planner-progress-wrap{margin-right:42px}.planner-close{right:16px;top:16px}.planner-choice-grid{grid-template-columns:repeat(2,1fr)}.planner-budget-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:560px){.planner-modal{padding:0}.planner-dialog{width:100%;height:100svh;max-height:none;border-radius:0}.planner-form{padding:64px 18px 22px}.planner-progress-wrap{margin-right:36px}.planner-step h3{font-size:2.35rem}.planner-grid,.planner-grid-title{grid-template-columns:1fr}.planner-phone{grid-column:auto}.planner-phone-row{grid-template-columns:105px 1fr}.planner-choice-grid{grid-template-columns:1fr 1fr;gap:8px}.planner-choice{min-height:72px;padding:12px;font-size:.68rem}.planner-budget-grid{grid-template-columns:1fr 1fr}.planner-actions{position:sticky;bottom:-22px;margin-inline:-18px;padding:14px 18px 22px;background:linear-gradient(180deg,rgba(251,246,239,0),#fbf6ef 25%)}.planner-next,.planner-submit{min-width:132px}}
+
+
+/* ===== V11: uploaded honeymoon video hero ===== */
+.home-page .hero{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  background:#5f493c;
+}
+.home-page .hero-media{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  background:#5f493c url('../img/honeymoon-video-poster.jpg') center/cover no-repeat !important;
+  transform:none !important;
+  animation:none !important;
+}
+.home-page .hero-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(42,30,23,.58) 0%,rgba(42,30,23,.43) 28%,rgba(42,30,23,.24) 54%,rgba(42,30,23,.09) 78%,rgba(42,30,23,.04) 100%),
+    linear-gradient(0deg,rgba(35,25,20,.22),rgba(35,25,20,.03) 52%,rgba(35,25,20,.10));
+}
+.home-page .hero-video{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+}
+.home-page .hero-layout{
+  z-index:3;
+}
+.home-page .hero-sound-toggle{
+  position:absolute;
+  right:max(24px,calc((100vw - 1180px)/2));
+  bottom:24px;
+  z-index:12;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:9px 14px 9px 11px;
+  border:1px solid rgba(255,255,255,.46);
+  border-radius:999px;
+  background:rgba(45,34,28,.46);
+  color:#fffaf3;
+  box-shadow:0 10px 32px rgba(22,15,11,.16);
+  backdrop-filter:blur(14px) saturate(1.15);
+  -webkit-backdrop-filter:blur(14px) saturate(1.15);
+  cursor:pointer;
+  font-size:.69rem;
+  font-weight:800;
+  letter-spacing:.02em;
+  transition:transform .2s ease,background .2s ease,border-color .2s ease;
+}
+.home-page .hero-sound-toggle:hover{
+  transform:translateY(-2px);
+  background:rgba(64,47,37,.62);
+  border-color:rgba(255,255,255,.68);
+}
+.home-page .hero-sound-toggle:focus-visible{
+  outline:2px solid #f1d5a5;
+  outline-offset:4px;
+}
+.home-page .hero-sound-icon{
+  width:23px;
+  height:23px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.13);
+}
+.home-page .hero-sound-icon svg{
+  width:15px;
+  height:15px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.home-page .hero-sound-icon svg path:first-child{
+  fill:currentColor;
+  stroke:none;
+}
+.home-page .hero-sound-icon-live{display:none}
+.home-page .hero-sound-toggle.is-unmuted .hero-sound-icon-muted{display:none}
+.home-page .hero-sound-toggle.is-unmuted .hero-sound-icon-live{display:grid}
+
+@media(max-width:1000px){
+  .home-page .hero-video{object-position:center center}
+  .home-page .hero-sound-toggle{right:18px;bottom:18px}
+}
+@media(max-width:700px){
+  .home-page .hero-video{object-position:55% center}
+  .home-page .hero-media::after{
+    background:
+      linear-gradient(180deg,rgba(34,25,20,.30) 0%,rgba(34,25,20,.15) 36%,rgba(34,25,20,.40) 100%),
+      linear-gradient(90deg,rgba(34,25,20,.36),rgba(34,25,20,.10));
+  }
+  .home-page .hero-sound-toggle{
+    right:14px;
+    bottom:14px;
+    width:44px;
+    height:44px;
+    min-height:44px;
+    padding:0;
+  }
+  .home-page .hero-sound-toggle [data-hero-sound-label]{display:none}
+}

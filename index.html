@@ -24,7 +24,11 @@
 </header>
 <main>
 <section class="hero">
-  <div class="hero-media" aria-hidden="true"></div>
+  <div class="hero-media" aria-hidden="true">
+    <video class="hero-video" id="honeymoonHeroVideo" autoplay muted loop playsinline preload="auto" poster="assets/img/honeymoon-video-poster.jpg">
+      <source src="assets/video/honeymoon-hero.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="container hero-layout">
     <aside class="hero-card reveal" aria-label="NC Travel honeymoon planning benefits">
       <div class="hero-card-kicker">Personal honeymoon planning</div>
@@ -43,6 +47,15 @@
       <div class="hero-actions"><a class="btn btn-gold" href="#plan-honeymoon" data-open-planner>Start planning</a><a class="btn btn-light" href="when-to-go.html">Find your perfect month</a></div>
     </div>
   </div>
+  <button class="hero-sound-toggle" type="button" data-hero-sound aria-pressed="false" aria-label="Unmute honeymoon video">
+    <span class="hero-sound-icon hero-sound-icon-muted" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="m17 9 4 4m0-4-4 4"/></svg>
+    </span>
+    <span class="hero-sound-icon hero-sound-icon-live" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>
+    </span>
+    <span data-hero-sound-label>Sound on</span>
+  </button>
 </section>
 
 <section class="trust-ribbon"><div class="container trust-grid">
