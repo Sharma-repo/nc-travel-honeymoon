@@ -577,77 +577,325 @@ h1{letter-spacing:-.025em}
   .when-page .month-nav-wrap{margin-inline:2%}
 }
 
-/* ===== V5 hero balance + Nikki section fill ===== */
-/* Align the hero copy with the wider premium header so the left side is intentionally used. */
+/* ===== V5 hero composition + Nikki section fill ===== */
+/* Desktop hero: deliberately use both sides of the banner so the dark left area is purposeful. */
+.home-page .hero{
+  min-height:760px;
+  padding-top:110px;
+  align-items:center;
+}
+.home-page .hero-layout{
+  position:relative;
+  z-index:3;
+  display:grid;
+  grid-template-columns:minmax(290px,340px) minmax(0,690px);
+  gap:clamp(48px,6vw,96px);
+  align-items:center;
+  justify-content:center;
+  width:min(1180px,92%);
+  min-height:630px;
+}
+.home-page .hero .hero-card{
+  position:relative;
+  inset:auto;
+  top:auto;
+  right:auto;
+  bottom:auto;
+  translate:none;
+  width:100%;
+  margin:0;
+  padding:28px;
+  border-radius:26px;
+  background:linear-gradient(150deg,rgba(255,252,247,.96),rgba(244,235,224,.93));
+  border:1px solid rgba(255,255,255,.78);
+  box-shadow:0 26px 70px rgba(30,22,18,.24);
+  backdrop-filter:blur(16px) saturate(1.05);
+}
+.home-page .hero .hero-card strong{
+  font-size:1.65rem;
+  line-height:1.12;
+  margin-bottom:12px;
+  color:#30261f;
+}
+.home-page .hero .hero-card p{
+  margin:0 0 18px;
+  color:#584d44!important;
+  font-size:.82rem;
+  line-height:1.65;
+}
+.home-page .hero .trust-mini{
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+.home-page .hero .trust-mini span{
+  min-height:52px;
+  display:flex;
+  align-items:center;
+  padding:10px 11px;
+  font-size:.66rem;
+  line-height:1.35;
+  background:rgba(255,255,255,.53);
+  border:1px solid rgba(90,67,53,.07);
+}
 .home-page .hero .hero-content{
-  width:min(1460px,92%);
-  max-width:1460px;
-  padding-right:430px;
+  position:relative;
+  z-index:3;
+  max-width:none;
+  padding:0;
+  color:#fff;
 }
-.home-page .hero .hero-content h1,
-.home-page .hero .hero-content p,
-.home-page .hero .hero-actions,
-.home-page .hero .eyebrow{
-  margin-left:0;
+.home-page .hero .hero-content h1{
+  max-width:680px;
 }
-.home-page .hero-card{
-  right:max(5%,calc((100vw - 1460px)/2 + 10px));
-  width:min(350px,31vw);
+.home-page .hero .hero-content p{
+  max-width:620px;
 }
-
-/* Nikki section: make the image column occupy the same visual height as the content column. */
-@media(min-width:1001px){
-  .home-page #about{padding-top:58px;padding-bottom:58px}
-  .home-page #about .intro-grid{
-    align-items:stretch;
-    gap:48px;
-  }
-  .home-page #about .nikki-frame{
-    height:100%;
-    min-height:690px;
-    padding:0 18px 0 0;
-    display:flex;
-    align-items:stretch;
-  }
-  .home-page #about .nikki-frame:before{
-    inset:34px 0 0 46px;
-  }
-  .home-page #about .nikki-frame img{
-    width:100%;
-    height:100%;
-    min-height:690px;
-    object-fit:cover;
-    object-position:center 44%;
-    border-radius:32px;
-  }
-  .home-page #about .intro-copy{
-    align-self:center;
-    padding:6px 0;
-  }
-  .home-page #about .nikki-badge{
-    bottom:24px;
-  }
+/* Shift the romantic couple slightly toward centre/right while keeping readable contrast behind both columns. */
+.home-page .hero-media{
+  background-position:center 42%;
 }
 
-@media(min-width:1001px) and (max-width:1320px){
-  .home-page .hero .hero-content{
-    width:min(1240px,92%);
-    max-width:1240px;
-    padding-right:365px;
-  }
-  .home-page .hero-card{
-    right:4%;
-    width:min(320px,30vw);
-  }
+/* Nikki section: fill the media column to the same visual height as the copy, eliminating dead bands above/below. */
+.home-page #about{
+  padding-top:58px;
+  padding-bottom:58px;
+  overflow:hidden;
+}
+.home-page #about .intro-grid{
+  align-items:stretch;
+  gap:50px;
+}
+.home-page #about .nikki-frame{
+  height:100%;
+  min-height:100%;
+  padding:0 18px 0 0;
+  display:flex;
+  align-items:stretch;
+}
+.home-page #about .nikki-frame:before{
+  inset:28px 0 -18px 42px;
+}
+.home-page #about .nikki-frame img{
+  width:100%;
+  height:100%;
+  min-height:690px;
+  max-height:none;
+  object-fit:cover;
+  object-position:center 34%;
+  border-radius:32px;
+  image-rendering:auto;
+  filter:contrast(1.025) saturate(1.025);
+}
+.home-page #about .nikki-badge{
+  right:-8px;
+  bottom:24px;
+}
+.home-page #about .intro-copy{
+  align-self:center;
+  padding:8px 0;
 }
 
+@media(max-width:1100px){
+  .home-page .hero-layout{
+    grid-template-columns:minmax(260px,310px) minmax(0,1fr);
+    gap:40px;
+  }
+  .home-page .hero .hero-card{padding:23px}
+  .home-page .hero .hero-card strong{font-size:1.45rem}
+  .home-page #about .nikki-frame img{min-height:640px}
+}
 @media(max-width:1000px){
+  .home-page .hero-layout{
+    grid-template-columns:1fr;
+    align-content:center;
+    gap:24px;
+    min-height:620px;
+  }
   .home-page .hero .hero-content{
-    width:min(92%,760px);
-    max-width:760px;
-    padding-right:0;
+    order:1;
+    max-width:680px;
   }
-  .home-page #about .nikki-frame{
-    padding-top:0;
+  .home-page .hero .hero-card{
+    order:2;
+    display:block;
+    max-width:560px;
+    padding:20px 22px;
   }
+  .home-page .hero .hero-card strong{font-size:1.35rem}
+  .home-page .hero .hero-card p{font-size:.76rem;margin-bottom:12px}
+  .home-page .hero .trust-mini{grid-template-columns:repeat(4,1fr)}
+  .home-page #about .nikki-frame{min-height:540px;padding-right:0}
+  .home-page #about .nikki-frame img{min-height:540px;height:100%}
+}
+@media(max-width:700px){
+  .home-page .hero{min-height:760px;padding-top:96px}
+  .home-page .hero-layout{min-height:650px;gap:20px}
+  .home-page .hero .hero-content{order:1}
+  .home-page .hero .hero-card{order:2;max-width:none}
+  .home-page .hero .trust-mini{grid-template-columns:1fr 1fr}
+  .home-page .hero .trust-mini span{min-height:46px}
+  .home-page #about{padding-top:42px;padding-bottom:42px}
+  .home-page #about .intro-grid{gap:30px}
+  .home-page #about .nikki-frame{min-height:500px}
+  .home-page #about .nikki-frame img{min-height:500px;height:500px;object-position:center 30%}
+}
+
+/* ===== V6 final hero polish ===== */
+.home-page .hero{
+  min-height:720px;
+  padding-top:106px;
+}
+.home-page .hero-layout{
+  grid-template-columns:minmax(280px,310px) minmax(0,650px);
+  gap:clamp(54px,6vw,82px);
+  min-height:590px;
+  justify-content:center;
+}
+.home-page .hero .hero-card{
+  width:100%;
+  max-width:310px;
+  padding:24px 23px;
+  border-radius:24px;
+  background:linear-gradient(145deg,rgba(242,229,212,.82),rgba(255,253,248,.68));
+  border:1px solid rgba(255,255,255,.72);
+  box-shadow:0 24px 70px rgba(31,23,18,.20),inset 0 1px 0 rgba(255,255,255,.55);
+  backdrop-filter:blur(18px) saturate(1.08);
+}
+.home-page .hero .hero-card-kicker{
+  margin-bottom:10px;
+  color:#8f6d38;
+  font-size:.59rem;
+  line-height:1.3;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.home-page .hero .hero-card strong{
+  display:block;
+  margin:0 0 10px;
+  color:#30261f;
+  font-size:1.52rem;
+  line-height:1.08;
+}
+.home-page .hero .hero-card p{
+  margin:0 0 17px;
+  color:#5e5148!important;
+  font-size:.75rem;
+  line-height:1.58;
+}
+.home-page .hero .trust-mini{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:7px;
+  margin-top:0;
+}
+.home-page .hero .trust-mini span{
+  min-height:0;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:9px 11px;
+  border-radius:12px;
+  background:rgba(255,255,255,.48);
+  border:1px solid rgba(90,67,53,.08);
+  color:#58493e;
+  font-size:.66rem;
+  line-height:1.3;
+  font-weight:700;
+}
+.home-page .hero .trust-mini i{
+  flex:0 0 21px;
+  width:21px;
+  height:21px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(183,150,89,.16);
+  color:#8f6d38;
+  font-style:normal;
+  font-size:.68rem;
+  font-weight:900;
+}
+.home-page .hero .hero-content{
+  position:relative;
+  max-width:650px;
+  padding:22px 0;
+}
+.home-page .hero .hero-content:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:-30px -45px;
+  background:radial-gradient(ellipse at 36% 48%,rgba(35,27,22,.46) 0%,rgba(35,27,22,.27) 45%,transparent 74%);
+  filter:blur(11px);
+  pointer-events:none;
+}
+.home-page .hero .hero-content h1{
+  max-width:620px;
+  margin-bottom:18px;
+  font-size:clamp(3.9rem,5.25vw,4.75rem);
+  line-height:.94;
+  letter-spacing:-.028em;
+  text-shadow:0 3px 22px rgba(24,18,14,.26);
+}
+.home-page .hero .hero-content p{
+  max-width:570px;
+  margin-bottom:0;
+  color:rgba(255,255,255,.94);
+  font-size:.94rem;
+  line-height:1.65;
+  text-shadow:0 2px 14px rgba(25,18,14,.30);
+}
+.home-page .hero .hero-actions{
+  margin-top:24px;
+}
+.home-page .hero-media{
+  background-image:
+    linear-gradient(90deg,rgba(37,28,23,.48) 0%,rgba(37,28,23,.31) 29%,rgba(37,28,23,.10) 54%,rgba(37,28,23,.05) 100%),
+    linear-gradient(0deg,rgba(32,24,20,.24),transparent 55%),
+    url('https://static.wixstatic.com/media/c4ca21_735003ba250a4f378be58e5f8d075154~mv2.jpg');
+  background-position:center 47%;
+}
+@media(max-width:1100px){
+  .home-page .hero-layout{
+    grid-template-columns:minmax(255px,285px) minmax(0,600px);
+    gap:38px;
+  }
+  .home-page .hero .hero-card{max-width:285px;padding:21px}
+  .home-page .hero .hero-content h1{font-size:clamp(3.55rem,5.5vw,4.35rem)}
+}
+@media(max-width:1000px){
+  .home-page .hero{min-height:730px}
+  .home-page .hero-layout{
+    grid-template-columns:1fr;
+    align-content:center;
+    gap:22px;
+    min-height:610px;
+  }
+  .home-page .hero .hero-content{
+    order:1;
+    max-width:620px;
+    padding:0;
+  }
+  .home-page .hero .hero-card{
+    order:2;
+    max-width:520px;
+    padding:18px 20px;
+  }
+  .home-page .hero .trust-mini{
+    grid-template-columns:repeat(3,1fr);
+  }
+  .home-page .hero .trust-mini span{
+    justify-content:center;
+    text-align:center;
+  }
+}
+@media(max-width:700px){
+  .home-page .hero{min-height:760px;padding-top:96px}
+  .home-page .hero-layout{min-height:650px;gap:18px}
+  .home-page .hero .hero-content h1{font-size:clamp(3.15rem,14vw,4rem)}
+  .home-page .hero .hero-content p{font-size:.88rem}
+  .home-page .hero .hero-card{max-width:none}
+  .home-page .hero .trust-mini{grid-template-columns:1fr}
+  .home-page .hero .trust-mini span{justify-content:flex-start;text-align:left}
 }
