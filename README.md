@@ -32,4 +32,4 @@ The build keeps the unique client-supplied honeymoon information and avoids inte
 
 
 ## Homepage hero video
-The homepage uses `assets/video/honeymoon-hero.mp4` as an autoplaying, muted, looping background video. A custom sound toggle appears at the bottom-right of the hero. The video is optimized for web delivery and retains its audio track for user-controlled unmuting.
+The homepage uses `assets/video/honeymoon-hero.mp4` as an autoplaying, muted, looping background video. A custom sound toggle appears at the bottom-right of the hero. The current banner video is the client-provided revised version, optimized in Full HD (1920×1080, 30 fps) with high-quality H.264 encoding and retained AAC audio for user-controlled unmuting.
