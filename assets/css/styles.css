@@ -851,10 +851,11 @@ h1{letter-spacing:-.025em}
 }
 .home-page .hero-media{
   background-image:
-    linear-gradient(90deg,rgba(37,28,23,.48) 0%,rgba(37,28,23,.31) 29%,rgba(37,28,23,.10) 54%,rgba(37,28,23,.05) 100%),
-    linear-gradient(0deg,rgba(32,24,20,.24),transparent 55%),
-    url('https://static.wixstatic.com/media/c4ca21_735003ba250a4f378be58e5f8d075154~mv2.jpg');
-  background-position:center 47%;
+    radial-gradient(circle at 62% 28%, rgba(255,236,206,.12) 0%, rgba(255,236,206,0) 26%),
+    linear-gradient(90deg,rgba(59,43,33,.58) 0%,rgba(59,43,33,.42) 26%,rgba(59,43,33,.20) 54%,rgba(59,43,33,.10) 100%),
+    linear-gradient(0deg,rgba(47,35,28,.24),rgba(47,35,28,.08) 48%,rgba(47,35,28,.16) 100%),
+    url('../img/hero-honeymoon-v7.png');
+  background-position:center center;
 }
 @media(max-width:1100px){
   .home-page .hero-layout{
@@ -898,4 +899,61 @@ h1{letter-spacing:-.025em}
   .home-page .hero .hero-card{max-width:none}
   .home-page .hero .trust-mini{grid-template-columns:1fr}
   .home-page .hero .trust-mini span{justify-content:flex-start;text-align:left}
+}
+
+/* ===== Final approved honeymoon hero artwork ===== */
+@media (min-width:1001px){
+  .home-page .hero{
+    min-height:760px;
+    background:#6b4938;
+  }
+  .home-page .hero-media{
+    background-image:url('../img/hero-honeymoon-final.png');
+    background-size:cover;
+    background-position:center center;
+    transform:none;
+    animation:none;
+  }
+  .home-page .hero-layout{
+    opacity:0;
+    pointer-events:none;
+  }
+  .home-page .hero-hotspots{
+    position:absolute;
+    inset:0;
+    z-index:5;
+    pointer-events:none;
+  }
+  .home-page .hero-hotspot{
+    position:absolute;
+    display:block;
+    pointer-events:auto;
+    border-radius:999px;
+    outline-offset:4px;
+  }
+  .home-page .hero-hotspot:focus-visible{
+    outline:2px solid rgba(255,255,255,.95);
+  }
+  .home-page .hero-hotspot-start{
+    left:35.0%;
+    top:60.2%;
+    width:10.8%;
+    height:7.8%;
+  }
+  .home-page .hero-hotspot-month{
+    left:45.7%;
+    top:60.2%;
+    width:14.1%;
+    height:7.8%;
+  }
+}
+@media (max-width:1000px){
+  .home-page .hero-hotspots{display:none}
+  .home-page .hero-media{
+    background-image:
+      linear-gradient(90deg,rgba(59,43,33,.58) 0%,rgba(59,43,33,.42) 26%,rgba(59,43,33,.20) 54%,rgba(59,43,33,.10) 100%),
+      linear-gradient(0deg,rgba(47,35,28,.24),rgba(47,35,28,.08) 48%,rgba(47,35,28,.16) 100%),
+      url('../img/hero-honeymoon-v7.png');
+    background-position:center center;
+  }
 }
