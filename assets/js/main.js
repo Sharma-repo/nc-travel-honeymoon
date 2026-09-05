@@ -126,7 +126,12 @@
   const prevMonthBtn=document.getElementById('prevMonth');
   const nextMonthBtn=document.getElementById('nextMonth');
   const monthOrder=Object.keys(monthData);
-  const activateMonth=(month,{updateHash=true}={})=>{
+  const monthContent=document.querySelector('.month-content');
+  const scrollToMonthStart=()=>{
+    if(!monthContent) return;
+    requestAnimationFrame(()=>monthContent.scrollIntoView({behavior:'smooth',block:'start'}));
+  };
+  const activateMonth=(month,{updateHash=true,scrollToStart=false}={})=>{
     if(!monthData[month]) return;
     pageMonthBtns.forEach(btn=>btn.classList.toggle('active',btn.dataset.monthTarget===month));
     monthArticles.forEach(article=>article.classList.toggle('active',article.dataset.month===month));
@@ -142,14 +147,19 @@
     const showcaseLink=document.getElementById('monthShowcaseLink');
     if(showcaseLink){showcaseLink.href=`#${month.toLowerCase()}`;showcaseLink.textContent=`Read ${month} in full`;}
     if(updateHash){history.replaceState(null,'',`#${month.toLowerCase()}`);}
+    if(scrollToStart) scrollToMonthStart();
   };
-  pageMonthBtns.forEach(btn=>btn.addEventListener('click',()=>activateMonth(btn.dataset.monthTarget,{updateHash:true})));
-  document.querySelectorAll('.month-progress button').forEach(btn=>btn.addEventListener('click',()=>activateMonth(btn.dataset.monthTarget,{updateHash:true})));
+  document.querySelectorAll('.month-nav [data-month-target]').forEach(btn=>
+    btn.addEventListener('click',()=>activateMonth(btn.dataset.monthTarget,{updateHash:true,scrollToStart:true}))
+  );
+  document.querySelectorAll('.month-progress [data-month-target]').forEach(btn=>
+    btn.addEventListener('click',()=>activateMonth(btn.dataset.monthTarget,{updateHash:true,scrollToStart:true}))
+  );
   const shiftMonth=(step)=>{
     const activeName=monthArticles.find(article=>article.classList.contains('active'))?.dataset.month || 'January';
     const currentIndex=monthOrder.indexOf(activeName);
     const nextIndex=(currentIndex+step+monthOrder.length)%monthOrder.length;
-    activateMonth(monthOrder[nextIndex],{updateHash:true});
+    activateMonth(monthOrder[nextIndex],{updateHash:true,scrollToStart:true});
   };
   prevMonthBtn?.addEventListener('click',()=>shiftMonth(-1));
   nextMonthBtn?.addEventListener('click',()=>shiftMonth(1));

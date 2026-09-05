@@ -336,3 +336,160 @@ p{margin:0 0 1em}
     transition:none !important;
   }
 }
+
+/* ===== September 2026 V3 refinement ===== */
+/* Cleaner premium typography across all page hero areas */
+h1{letter-spacing:-.025em}
+.hero h1{
+  font-size:clamp(3.5rem,5.8vw,5.8rem);
+  line-height:.92;
+  max-width:680px;
+  margin-bottom:20px;
+}
+.subhero h1{
+  font-size:clamp(3rem,5vw,4.85rem);
+  line-height:.98;
+  max-width:860px;
+}
+.section-title{font-size:clamp(2.35rem,4.2vw,4rem);line-height:1.03}
+.intro-copy h2{font-size:clamp(2.75rem,4.5vw,4.4rem);line-height:1.03}
+
+/* Header menu + premium rectangular CTA */
+.nav-links{gap:31px}
+.nav-actions .btn-gold{
+  position:relative;
+  overflow:hidden;
+  border-radius:13px;
+  padding:13px 22px;
+  min-width:136px;
+  background:linear-gradient(135deg,#8d6b49 0%,#a77f51 52%,#75563d 100%);
+  border:1px solid rgba(255,255,255,.23);
+  box-shadow:0 10px 24px rgba(88,61,41,.16), inset 0 1px 0 rgba(255,255,255,.25);
+}
+.nav-actions .btn-gold:before{
+  content:"";
+  position:absolute;
+  top:-55%;
+  left:-45%;
+  width:34%;
+  height:220%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.46),transparent);
+  transform:rotate(18deg);
+  animation:navCtaShine 4.2s ease-in-out infinite;
+}
+.nav-actions .btn-gold:hover{background:linear-gradient(135deg,#98734d,#b0895a 52%,#795940);box-shadow:0 14px 32px rgba(88,61,41,.22)}
+@keyframes navCtaShine{0%,64%{left:-45%}82%,100%{left:125%}}
+
+/* Home hero: intentionally honeymoon-led rather than generic resort imagery */
+.hero-media{
+  background-image:
+    linear-gradient(90deg,rgba(39,30,25,.74) 0%,rgba(39,30,25,.57) 35%,rgba(39,30,25,.18) 66%,rgba(39,30,25,.08) 100%),
+    linear-gradient(0deg,rgba(34,27,23,.36),transparent 52%),
+    url('https://images.unsplash.com/photo-1638693931690-e6225d143a67?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=78&w=2400');
+  background-position:center center;
+}
+.hero-content{max-width:690px}
+.hero p{max-width:585px}
+
+/* Sound familiar — balanced 2 x 2 editorial grid */
+.sound-familiar-section{padding:72px 0 78px}
+.sound-familiar-section h2{
+  font-size:clamp(2.35rem,4vw,3.65rem)!important;
+  max-width:930px!important;
+  line-height:1.04;
+}
+.sound-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  max-width:1000px;
+  gap:16px;
+  margin-top:30px;
+}
+.sound-grid .benefit-card{
+  min-height:145px;
+  display:grid;
+  grid-template-columns:48px 1fr;
+  gap:18px;
+  align-items:start;
+  padding:25px 27px;
+}
+.sound-grid .benefit-card h3{font-size:1.45rem;line-height:1.12;margin:4px 0 0}
+.sound-mark{
+  width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  background:#f4eadf;color:#8f6d38;font-size:.66rem;font-weight:800;
+  border:1px solid rgba(143,109,56,.13);
+}
+
+/* When-to-go: month selection always returns to the start of the selected article */
+.month-content{scroll-margin-top:215px}
+.month-article>h2{font-size:clamp(2.35rem,4vw,3.8rem)!important;line-height:1.04}
+.month-content h3{font-size:1.95rem}
+
+/* Destination closing section — full-width guided choice instead of empty whitespace */
+.tailor-made-section{
+  background:
+    radial-gradient(circle at 8% 0%,rgba(183,150,89,.12),transparent 30%),
+    radial-gradient(circle at 94% 100%,rgba(90,67,53,.08),transparent 28%),
+    linear-gradient(180deg,#f5ede2,#fbf8f2);
+  border-top:1px solid rgba(90,67,53,.08);
+}
+.tailor-made-head{max-width:880px;margin-bottom:30px}
+.tailor-made-head h2{font-size:clamp(2.5rem,4.5vw,4rem);line-height:1.03;margin-bottom:14px}
+.tailor-made-head p{font-size:.95rem;color:var(--muted);max-width:760px;margin:0}
+.tailor-paths{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.tailor-path{
+  min-height:260px;
+  display:grid;
+  grid-template-columns:46px 1fr;
+  gap:16px;
+  padding:25px;
+  border-radius:22px;
+  background:rgba(255,255,255,.82);
+  border:1px solid rgba(90,67,53,.12);
+  box-shadow:0 14px 36px rgba(65,48,36,.05);
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
+.tailor-path:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(65,48,36,.09);border-color:rgba(183,150,89,.36)}
+.tailor-path>span{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#5a4335;color:#fff;font-size:.67rem;font-weight:800}
+.tailor-path small{display:block;color:#9a7944;text-transform:uppercase;letter-spacing:.12em;font-size:.58rem;font-weight:800;margin:4px 0 7px}
+.tailor-path h3{font-size:1.7rem;margin:0 0 9px}
+.tailor-path p{font-size:.76rem;color:var(--muted);margin:0}
+.tailor-cta{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:30px;
+  align-items:center;
+  padding:25px 28px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#4b392e,#664d3d);
+  box-shadow:0 16px 38px rgba(64,45,34,.13);
+}
+.tailor-cta small{display:block;color:#d9bc89;text-transform:uppercase;letter-spacing:.12em;font-size:.58rem;font-weight:800;margin-bottom:5px}
+.tailor-cta strong{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.65rem;color:#fff9f2;margin-bottom:3px}
+.tailor-cta p{margin:0;color:#d9cec5;font-size:.75rem;max-width:720px}
+.tailor-cta .btn-gold{white-space:nowrap;background:linear-gradient(135deg,#c2a066,#9d7744)}
+
+@media(max-width:1000px){
+  .nav-links{gap:22px}
+  .hero h1{font-size:clamp(3.3rem,7vw,5rem)}
+  .subhero h1{font-size:clamp(3rem,6vw,4.5rem)}
+  .tailor-paths{grid-template-columns:1fr 1fr}
+  .tailor-path:last-child{grid-column:1/-1;min-height:0}
+}
+@media(max-width:700px){
+  .hero h1{font-size:clamp(2.9rem,13vw,4.2rem);line-height:.94}
+  .subhero h1{font-size:clamp(2.75rem,11vw,3.65rem)}
+  .section-title{font-size:clamp(2.15rem,10vw,3.2rem)}
+  .intro-copy h2{font-size:clamp(2.45rem,11vw,3.5rem)}
+  .sound-grid{grid-template-columns:1fr}
+  .sound-grid .benefit-card{min-height:0;grid-template-columns:40px 1fr;padding:21px}
+  .sound-grid .benefit-card h3{font-size:1.28rem}
+  .sound-mark{width:36px;height:36px}
+  .month-content{scroll-margin-top:185px}
+  .month-article>h2{font-size:2.45rem!important}
+  .tailor-paths{grid-template-columns:1fr}
+  .tailor-path:last-child{grid-column:auto}
+  .tailor-path{min-height:0;padding:21px}
+  .tailor-cta{grid-template-columns:1fr;padding:23px}
+  .tailor-cta .btn{width:100%}
+}
