@@ -193,3 +193,148 @@
     activateMonth(pageMonthBtns.find(b=>b.classList.contains('active'))?.dataset.monthTarget || 'January',{updateHash:false});
   }
 })();
+
+/* Premium step-by-step honeymoon planner */
+window.addEventListener('DOMContentLoaded',()=>{
+  const modal=document.getElementById('honeymoonPlanner');
+  if(!modal) return;
+
+  const form=modal.querySelector('[data-honeymoon-planner]');
+  const steps=[...modal.querySelectorAll('[data-planner-step]')];
+  const openers=[...document.querySelectorAll('[data-open-planner]')];
+  const closers=[...modal.querySelectorAll('[data-close-planner]')];
+  const backBtn=modal.querySelector('[data-planner-back]');
+  const nextBtn=modal.querySelector('[data-planner-next]');
+  const submitBtn=modal.querySelector('[data-planner-submit]');
+  const errorEl=modal.querySelector('[data-planner-error]');
+  const stepLabel=document.getElementById('plannerStepLabel');
+  const stepName=document.getElementById('plannerStepName');
+  const progressBar=document.getElementById('plannerProgressBar');
+  const stepDots=[...modal.querySelectorAll('[data-step-dot]')];
+  const videoToggle=modal.querySelector('[data-video-toggle]');
+  const consultationWrap=modal.querySelector('[data-consultation-date]');
+  const appointmentInput=consultationWrap?.querySelector('input');
+  const stepNames=['About you','Contact','Your honeymoon','Budget & ideas','Consultation'];
+  let current=1;
+  let lastTrigger=null;
+
+  const openPlanner=(trigger)=>{
+    lastTrigger=trigger || document.activeElement;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('planner-open');
+    history.replaceState(null,'','#plan-honeymoon');
+    setTimeout(()=>modal.querySelector('.planner-close')?.focus(),80);
+  };
+
+  const closePlanner=()=>{
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('planner-open');
+    if(location.hash==='#plan-honeymoon') history.replaceState(null,'',location.pathname+location.search);
+    lastTrigger?.focus?.();
+  };
+
+  openers.forEach(el=>el.addEventListener('click',e=>{e.preventDefault();openPlanner(el);}));
+  closers.forEach(el=>el.addEventListener('click',closePlanner));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open')) closePlanner();});
+  if(location.hash==='#plan-honeymoon') openPlanner();
+
+  const updateStep=()=>{
+    steps.forEach(step=>step.classList.toggle('active',Number(step.dataset.plannerStep)===current));
+    stepDots.forEach(dot=>dot.classList.toggle('active',Number(dot.dataset.stepDot)===current));
+    stepLabel.textContent=`Step ${current} of ${steps.length}`;
+    stepName.textContent=stepNames[current-1];
+    progressBar.style.width=`${(current/steps.length)*100}%`;
+    backBtn.disabled=current===1;
+    nextBtn.hidden=current===steps.length;
+    submitBtn.hidden=current!==steps.length;
+    errorEl.textContent='';
+    modal.querySelector('.planner-form')?.scrollTo({top:0,behavior:'smooth'});
+    setTimeout(()=>{
+      const first=steps[current-1]?.querySelector('input:not([type="hidden"]),select,textarea,button.planner-choice');
+      first?.focus({preventScroll:true});
+    },180);
+  };
+
+  const validateStep=()=>{
+    const step=steps[current-1];
+    if(!step) return true;
+    let valid=true;
+    let firstInvalid=null;
+    step.querySelectorAll('[required]').forEach(field=>{
+      const okay=field.type==='checkbox' ? field.checked : field.checkValidity() && String(field.value).trim()!=='';
+      const holder=field.closest('.planner-field');
+      holder?.classList.toggle('invalid',!okay);
+      if(!okay){valid=false;firstInvalid ||= field;}
+    });
+    if(!valid){
+      errorEl.textContent='Please complete the highlighted detail before continuing.';
+      firstInvalid?.focus();
+    }else errorEl.textContent='';
+    return valid;
+  };
+
+  nextBtn?.addEventListener('click',()=>{
+    if(!validateStep()) return;
+    if(current<steps.length){current++;updateStep();}
+  });
+  backBtn?.addEventListener('click',()=>{if(current>1){current--;updateStep();}});
+
+  modal.querySelectorAll('.planner-field input,.planner-field select,.planner-field textarea').forEach(field=>{
+    field.addEventListener('input',()=>field.closest('.planner-field')?.classList.remove('invalid'));
+    field.addEventListener('change',()=>field.closest('.planner-field')?.classList.remove('invalid'));
+  });
+
+  const choiceValue=modal.querySelector('[data-choice-value]');
+  const choiceButtons=[...modal.querySelectorAll('.planner-choice')];
+  choiceButtons.forEach(btn=>btn.addEventListener('click',()=>{
+    btn.classList.toggle('selected');
+    btn.setAttribute('aria-pressed',String(btn.classList.contains('selected')));
+    if(choiceValue) choiceValue.value=choiceButtons.filter(b=>b.classList.contains('selected')).map(b=>b.dataset.choice).join(', ');
+  }));
+
+  videoToggle?.addEventListener('change',()=>{
+    const enabled=videoToggle.checked;
+    consultationWrap.hidden=!enabled;
+    if(appointmentInput) appointmentInput.required=enabled;
+  });
+
+  form?.addEventListener('submit',e=>{
+    e.preventDefault();
+    if(!validateStep()) return;
+    const d=new FormData(form);
+    const fullName=[d.get('title'),d.get('firstName'),d.get('lastName')].filter(Boolean).join(' ');
+    const dial=d.get('dialCode')==='other' ? '' : d.get('dialCode');
+    const lines=[
+      'NC Travel Honeymoon Planner Enquiry',
+      '-----------------------------------',
+      `Name: ${fullName}`,
+      `Phone: ${dial||''} ${d.get('phone')||''}`.trim(),
+      `Email: ${d.get('email')||''}`,
+      '',
+      'Honeymoon preferences',
+      `Style: ${d.get('honeymoonStyle')||'Not specified'}`,
+      `Preferred month: ${d.get('travelMonth')||'Not sure yet'}`,
+      `Duration: ${d.get('duration')||'Flexible'}`,
+      `Budget: ${d.get('budget')||'Not specified'}`,
+      `Destination ideas: ${d.get('destination')||'Open to ideas'}`,
+      `Departure airport: ${d.get('airport')||'Not specified'}`,
+      '',
+      `Video consultation: ${d.get('videoConsultation')||'No'}`,
+      `Preferred appointment date: ${d.get('appointmentDate')||'Not requested'}`,
+      '',
+      'Additional notes:',
+      d.get('notes')||'None'
+    ];
+    submitBtn.disabled=true;
+    submitBtn.innerHTML='Opening enquiry <span>→</span>';
+    window.location.href=`mailto:nctravel@travel-pa.com?subject=${encodeURIComponent(`Honeymoon planning enquiry — ${fullName||'NC Travel website'}`)}&body=${encodeURIComponent(lines.join('\n'))}`;
+    setTimeout(()=>{
+      submitBtn.disabled=false;
+      submitBtn.innerHTML='Send to Nikki <span>→</span>';
+    },1200);
+  });
+
+  updateStep();
+});

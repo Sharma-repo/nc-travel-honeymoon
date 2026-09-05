@@ -10,7 +10,7 @@
       <a href="https://www.nctravel.co.uk/" target="_blank" rel="noopener">Main website ↗</a>
     </nav>
     <div class="nav-actions">
-      <a class="btn btn-gold btn-sm" href="index.html#contact">Plan with Nikki</a>
+      <a class="btn btn-gold btn-sm" href="#plan-honeymoon" data-open-planner>Plan with Nikki</a>
       <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
     </div>
   </div>
@@ -18,7 +18,7 @@
     <a href="index.html">Honeymoon</a>
     <a href="when-to-go.html">When to go</a>
     <a href="destinations.html">Destinations</a>
-    <a href="index.html#contact">Plan with Nikki</a>
+    <a href="#plan-honeymoon" data-open-planner>Plan with Nikki</a>
     <a href="https://www.nctravel.co.uk/" target="_blank" rel="noopener">Back to NC Travel ↗</a>
   </nav>
 </header>
@@ -40,7 +40,7 @@
       <div class="eyebrow">NC Travel Honeymoons</div>
       <h1>Your honeymoon.<br><span style="color:#e5c794">Your story.</span></h1>
       <p>A honeymoon built around the two of you — your style, your budget and the memories you want to make.</p>
-      <div class="hero-actions"><a class="btn btn-gold" href="#contact">Start planning</a><a class="btn btn-light" href="when-to-go.html">Find your perfect month</a></div>
+      <div class="hero-actions"><a class="btn btn-gold" href="#plan-honeymoon" data-open-planner>Start planning</a><a class="btn btn-light" href="when-to-go.html">Find your perfect month</a></div>
     </div>
   </div>
 </section>
@@ -281,4 +281,114 @@
     </div>
     <div class="footer-bottom"><span>© 2026 NC Travel. Honeymoon collection.</span><span>NC Travel is a member of the Travel-PA consortium, part of Sunset Travel.</span></div>
   </div>
-</footer><script src="assets/js/main.js"></script></body></html>
+</footer><script src="assets/js/main.js"></script>
+<div class="planner-modal" id="honeymoonPlanner" aria-hidden="true">
+  <div class="planner-backdrop" data-close-planner></div>
+  <section class="planner-dialog" role="dialog" aria-modal="true" aria-labelledby="plannerTitle">
+    <button class="planner-close" type="button" aria-label="Close honeymoon planner" data-close-planner>×</button>
+    <aside class="planner-aside">
+      <div class="planner-aside-inner">
+        <span class="planner-eyebrow">NC Travel Honeymoons</span>
+        <h2 id="plannerTitle">Let’s make it feel completely <em>yours.</em></h2>
+        <p>Answer a few quick questions and Nikki can start shaping ideas around the two of you.</p>
+        <div class="planner-assurance">
+          <span>✓ Personal recommendations</span>
+          <span>✓ No planning fee</span>
+          <span>✓ ABTA &amp; ATOL protected</span>
+        </div>
+        <div class="planner-step-list" aria-hidden="true">
+          <span class="active" data-step-dot="1"><b>01</b> About you</span>
+          <span data-step-dot="2"><b>02</b> Contact</span>
+          <span data-step-dot="3"><b>03</b> Your honeymoon</span>
+          <span data-step-dot="4"><b>04</b> Budget &amp; ideas</span>
+          <span data-step-dot="5"><b>05</b> Consultation</span>
+        </div>
+      </div>
+    </aside>
+
+    <form class="planner-form" data-honeymoon-planner novalidate>
+      <div class="planner-progress-wrap">
+        <div class="planner-progress-copy"><span id="plannerStepLabel">Step 1 of 5</span><strong id="plannerStepName">About you</strong></div>
+        <div class="planner-progress"><span id="plannerProgressBar"></span></div>
+      </div>
+
+      <div class="planner-step active" data-planner-step="1">
+        <span class="planner-question-kicker">First, the easy bit</span>
+        <h3>Who are we planning this honeymoon for?</h3>
+        <p class="planner-step-lead">Tell Nikki who she’ll be speaking with.</p>
+        <div class="planner-grid planner-grid-title">
+          <label class="planner-field"><span>Title</span><select name="title" required><option value="">Select</option><option>Mr</option><option>Mrs</option><option>Miss</option><option>Ms</option><option>Mx</option><option>Dr</option></select></label>
+          <label class="planner-field"><span>First name</span><input type="text" name="firstName" autocomplete="given-name" placeholder="First name" required></label>
+          <label class="planner-field"><span>Last name</span><input type="text" name="lastName" autocomplete="family-name" placeholder="Last name" required></label>
+        </div>
+      </div>
+
+      <div class="planner-step" data-planner-step="2">
+        <span class="planner-question-kicker">Keep in touch</span>
+        <h3>What’s the best way for Nikki to reach you?</h3>
+        <p class="planner-step-lead">Your details are only used to respond to this honeymoon enquiry.</p>
+        <div class="planner-grid">
+          <label class="planner-field planner-phone"><span>Phone number</span><div class="planner-phone-row"><select name="dialCode" aria-label="Country code"><option value="+44">UK +44</option><option value="+353">IE +353</option><option value="+1">US/CA +1</option><option value="+61">AU +61</option><option value="+91">IN +91</option><option value="other">Other</option></select><input type="tel" name="phone" autocomplete="tel" placeholder="Phone number" required></div></label>
+          <label class="planner-field"><span>Email address</span><input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
+        </div>
+      </div>
+
+      <div class="planner-step" data-planner-step="3">
+        <span class="planner-question-kicker">Picture the two of you</span>
+        <h3>What kind of honeymoon are you imagining?</h3>
+        <p class="planner-step-lead">Choose as many as feel right. You can change your mind later.</p>
+        <div class="planner-choice-grid" data-choice-group="style">
+          <button type="button" class="planner-choice" data-choice="Beach & relaxation"><span>☼</span>Beach &amp; relaxation</button>
+          <button type="button" class="planner-choice" data-choice="Luxury resort"><span>◇</span>Luxury resort</button>
+          <button type="button" class="planner-choice" data-choice="Adventure & safari"><span>↗</span>Adventure &amp; safari</button>
+          <button type="button" class="planner-choice" data-choice="Culture & city"><span>⌂</span>Culture &amp; city</button>
+          <button type="button" class="planner-choice" data-choice="Island hopping"><span>≈</span>Island hopping</button>
+          <button type="button" class="planner-choice" data-choice="Multi-centre"><span>＋</span>Multi-centre</button>
+        </div>
+        <input type="hidden" name="honeymoonStyle" data-choice-value>
+        <div class="planner-grid planner-grid-compact">
+          <label class="planner-field"><span>Preferred travel month</span><select name="travelMonth"><option value="">Not sure yet</option><option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option></select></label>
+          <label class="planner-field"><span>Ideal duration</span><select name="duration"><option value="">Flexible</option><option>5–7 nights</option><option>8–10 nights</option><option>11–14 nights</option><option>15+ nights</option></select></label>
+        </div>
+      </div>
+
+      <div class="planner-step" data-planner-step="4">
+        <span class="planner-question-kicker">Make the ideas useful</span>
+        <h3>What should Nikki plan around?</h3>
+        <p class="planner-step-lead">A rough budget and any destination ideas help Nikki recommend the right level of trip.</p>
+        <div class="planner-budget-grid" data-radio-group="budget">
+          <label><input type="radio" name="budget" value="Up to £3,000"><span>Up to £3,000</span></label>
+          <label><input type="radio" name="budget" value="£3,000–£5,000"><span>£3k–£5k</span></label>
+          <label><input type="radio" name="budget" value="£5,000–£8,000"><span>£5k–£8k</span></label>
+          <label><input type="radio" name="budget" value="£8,000+"><span>£8k+</span></label>
+          <label><input type="radio" name="budget" value="Not sure yet"><span>Not sure yet</span></label>
+        </div>
+        <div class="planner-grid planner-grid-compact">
+          <label class="planner-field"><span>Destination ideas</span><input type="text" name="destination" placeholder="e.g. Maldives, Japan, safari + beach"></label>
+          <label class="planner-field"><span>Departure airport</span><input type="text" name="airport" placeholder="e.g. London Gatwick"></label>
+        </div>
+      </div>
+
+      <div class="planner-step" data-planner-step="5">
+        <span class="planner-question-kicker">Last step</span>
+        <h3>Would you like to arrange a video consultation?</h3>
+        <p class="planner-step-lead">You can request a relaxed chat with Nikki, or simply send your enquiry and let her come back with the next step.</p>
+        <label class="planner-toggle"><input type="checkbox" name="videoConsultation" value="Yes" data-video-toggle><span class="planner-toggle-switch"></span><span><strong>Arrange a video consultation with Nikki</strong><small>Get personalised advice, destination ideas and expert guidance.</small></span></label>
+        <div class="planner-consultation-date" data-consultation-date hidden>
+          <label class="planner-field"><span>Preferred appointment date</span><input type="date" name="appointmentDate"></label>
+        </div>
+        <label class="planner-field planner-notes"><span>Anything else Nikki should know?</span><textarea name="notes" placeholder="Wedding date, a must-have experience, accessibility needs, a special surprise…"></textarea></label>
+        <label class="planner-consent"><input type="checkbox" name="consent" required><span>I’m happy for NC Travel to contact me about this honeymoon enquiry.</span></label>
+      </div>
+
+      <div class="planner-actions">
+        <button class="planner-back" type="button" data-planner-back disabled>Back</button>
+        <button class="planner-next" type="button" data-planner-next>Continue <span>→</span></button>
+        <button class="planner-submit" type="submit" data-planner-submit hidden>Send to Nikki <span>→</span></button>
+      </div>
+      <p class="planner-error" data-planner-error aria-live="polite"></p>
+    </form>
+  </section>
+</div>
+
+</body></html>
