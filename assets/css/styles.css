@@ -1547,3 +1547,212 @@ h1,h2,h3,h4{color:var(--brown-dark)}
   .logo-wrap{padding:0!important}
   .logo{width:148px}
 }
+
+/* ===== V14: Blue Eclipse premium theme ===== */
+:root{
+  --ivory:#ffffff;
+  --paper:#f8f8fc;
+  --white:#ffffff;
+  --beige:#f4f4fa;
+  --beige-2:#ececf5;
+  --sand:#d9d9e7;
+  --gold:#8686ac;
+  --gold-dark:#505081;
+  --brown:#272757;
+  --brown-dark:#0f0e47;
+  --ink:#171633;
+  --muted:#6a6982;
+  --line:rgba(39,39,87,.13);
+  --shadow:0 22px 60px rgba(15,14,71,.10);
+}
+html,body{background:#fff;color:var(--ink)}
+h1,h2,h3,h4{color:var(--brown-dark)}
+.section-white{background:#fff}
+.section-paper{background:#f8f8fc}
+.section-beige{background:linear-gradient(180deg,#fafafe 0%,#fff 100%)}
+.section-dark{background:#0f0e47;color:#f7f7ff}
+.section-dark h2,.section-dark h3{color:#fff}
+.eyebrow{color:#505081}
+.eyebrow:before{background:#8686ac}
+.gold{color:#505081}
+.pill{background:rgba(255,255,255,.92);border-color:rgba(39,39,87,.13);color:#272757}
+
+/* Header */
+.site-header{
+  background:rgba(255,255,255,.82)!important;
+  border:1px solid rgba(39,39,87,.10)!important;
+  box-shadow:0 18px 50px rgba(15,14,71,.09)!important;
+  backdrop-filter:blur(22px) saturate(1.12);
+  -webkit-backdrop-filter:blur(22px) saturate(1.12);
+}
+.site-header.scrolled{
+  background:rgba(255,255,255,.94)!important;
+  border-color:rgba(80,80,129,.16)!important;
+  box-shadow:0 18px 52px rgba(15,14,71,.12)!important;
+}
+.logo-wrap{padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+.logo{filter:none!important;mix-blend-mode:normal!important}
+.nav-links{color:#383754}
+.nav-links a:after{background:#505081}
+.mobile-toggle{background:#fff;border-color:rgba(39,39,87,.15)}
+.mobile-toggle span,.mobile-toggle span:before,.mobile-toggle span:after{background:#272757}
+.mobile-nav{background:rgba(255,255,255,.985)!important}
+.mobile-nav a{color:#0f0e47;border-color:rgba(39,39,87,.10)}
+
+/* Buttons */
+.btn{background:#272757;color:#fff}
+.btn:hover{box-shadow:0 12px 30px rgba(15,14,71,.19)}
+.btn-gold{
+  background:linear-gradient(135deg,#8686ac 0%,#505081 52%,#272757 100%)!important;
+  color:#fff!important;
+  border-color:rgba(255,255,255,.18)!important;
+  box-shadow:0 12px 28px rgba(39,39,87,.19)!important;
+}
+.btn-gold:hover{box-shadow:0 16px 36px rgba(39,39,87,.27)!important}
+.btn-light{background:rgba(255,255,255,.93);color:#0f0e47;border-color:rgba(39,39,87,.10)}
+.btn-outline{background:#fff;color:#272757;border-color:rgba(39,39,87,.25)}
+.btn-outline:hover{background:#f4f4fa;border-color:#505081;color:#0f0e47}
+
+/* Video hero + premium glass planner card */
+.home-page .hero .eyebrow{color:#e7e7f5}
+.home-page .hero .eyebrow:before{background:#b8b8d6}
+.home-page .hero .hero-content h1{color:#fff}
+.home-page .hero .hero-content .hero-accent{color:#d7d7ec!important}
+.home-page .hero .hero-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.80),rgba(134,134,172,.28))!important;
+  border:1px solid rgba(255,255,255,.72)!important;
+  box-shadow:0 28px 80px rgba(15,14,71,.22),inset 0 1px 0 rgba(255,255,255,.78)!important;
+  backdrop-filter:blur(24px) saturate(1.16)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(1.16)!important;
+  color:#0f0e47!important;
+}
+.home-page .hero .hero-card-kicker{color:#505081!important}
+.home-page .hero .hero-card strong{color:#0f0e47!important}
+.home-page .hero .hero-card p{color:#53526c!important}
+.home-page .hero .trust-mini span{background:rgba(255,255,255,.72)!important;border-color:rgba(39,39,87,.09)!important;color:#272757!important}
+.home-page .hero .trust-mini i{background:rgba(134,134,172,.14)!important;color:#505081!important}
+.home-page .hero-media::after{
+  background:linear-gradient(90deg,rgba(15,14,71,.51) 0%,rgba(15,14,71,.34) 30%,rgba(15,14,71,.17) 58%,rgba(15,14,71,.06) 100%),linear-gradient(0deg,rgba(15,14,71,.20),rgba(15,14,71,.02) 58%,rgba(15,14,71,.08))!important;
+}
+.home-page .hero-sound-toggle{background:rgba(15,14,71,.54);border-color:rgba(255,255,255,.44);color:#fff}
+.home-page .hero-sound-toggle:hover{background:rgba(39,39,87,.76)}
+.home-page .hero-sound-toggle:focus-visible{outline-color:#aaaad0}
+
+/* Editorial / cards */
+.trust-icon{background:#efeff7;color:#505081}
+.intro-copy .quote{color:#505081}
+.nikki-frame:before{background:#ececf5}
+.nikki-badge{border-color:var(--line);box-shadow:0 18px 46px rgba(15,14,71,.10)}
+.service-point,.benefit-card,.journey-card,.soft-card,.feature-note,.contact-form,.region-block,.month-content,.month-aside-card{
+  border-color:var(--line);box-shadow:0 12px 34px rgba(15,14,71,.045)
+}
+.service-point{color:#5c5b72}.service-point b{color:#272757}
+.card-num{color:#505081}.card-num:after{background:#b7b7d0}
+.journey-line{background:linear-gradient(transparent,#aaaacc 8%,#aaaacc 92%,transparent)}
+.journey-marker{background:#272757;box-shadow:0 0 0 8px #fff}
+.month-chip:hover,.month-chip.active,.destination-chip:hover,.destination-chip.active,.month-btn.active,.filter-btn.active{background:#272757!important;border-color:#272757!important;color:#fff!important}
+.tag-list span{background:#f0f0f8;border-color:rgba(80,80,129,.18);color:#272757}
+.month-insight-card small,.destination-info-card small,.month-showcase-card small,.month-mini-card small{color:#505081}
+
+/* Sound familiar: compact premium editorial split */
+.sound-familiar-section{padding:58px 0!important;background:linear-gradient(135deg,#f8f8fc 0%,#fff 100%)!important}
+.sound-editorial{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.sound-copy h2{font-size:clamp(2.55rem,4.2vw,4rem);max-width:760px;margin-bottom:18px}
+.sound-copy>p{font-size:.92rem;color:#5f5e76;max-width:720px;margin-bottom:24px}
+.sound-grid-premium{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sound-grid-premium .sound-card{min-height:142px;padding:20px;border-radius:22px;background:rgba(255,255,255,.88);border:1px solid rgba(39,39,87,.11);box-shadow:0 12px 32px rgba(15,14,71,.055)}
+.sound-grid-premium .sound-card h3{font-size:1.3rem;line-height:1.12;margin:12px 0 0}
+.sound-grid-premium .sound-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#efeff7;color:#505081;font-size:.68rem;font-weight:800}
+
+/* Destination wedding */
+.destination-wedding-section{padding:72px 0}
+.wedding-abroad-shell{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center;padding:46px;border-radius:32px;background:linear-gradient(135deg,#f6f6fb 0%,#fff 58%);border:1px solid rgba(39,39,87,.10);box-shadow:0 22px 60px rgba(15,14,71,.065)}
+.wedding-abroad-copy h2{font-size:clamp(2.7rem,4.4vw,4.2rem);max-width:760px}
+.wedding-abroad-copy p{color:#626178;max-width:760px;margin-bottom:24px}
+.wedding-abroad-points{display:grid;gap:12px}
+.wedding-abroad-points article{position:relative;padding:20px 20px 20px 62px;border-radius:20px;background:#fff;border:1px solid rgba(39,39,87,.10);box-shadow:0 10px 26px rgba(15,14,71,.04)}
+.wedding-abroad-points article>span{position:absolute;left:18px;top:18px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#272757;color:#fff;font-size:.62rem;font-weight:800}
+.wedding-abroad-points strong{display:block;color:#0f0e47;font-size:.84rem;margin-bottom:4px}
+.wedding-abroad-points p{margin:0;color:#6a6982;font-size:.76rem}
+
+/* FAQ */
+.faq-section{padding:72px 0}
+.faq-shell{display:grid;grid-template-columns:.78fr 1.22fr;gap:56px;align-items:start}
+.faq-intro{position:sticky;top:130px}
+.faq-intro h2{font-size:clamp(2.6rem,4.3vw,4rem)}
+.faq-intro p{color:#68677d;max-width:520px}
+.faq-list{display:grid;gap:12px}
+.faq-list details{background:#fff;border:1px solid rgba(39,39,87,.11);border-radius:20px;padding:0 22px;box-shadow:0 10px 28px rgba(15,14,71,.04)}
+.faq-list summary{cursor:pointer;list-style:none;padding:20px 34px 20px 0;position:relative;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem;font-weight:700;color:#0f0e47}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary:after{content:"+";position:absolute;right:0;top:19px;font-family:Manrope;font-size:1.1rem;color:#505081}
+.faq-list details[open] summary:after{content:"–"}
+.faq-list details p{margin:0 0 22px;padding-top:16px;border-top:1px solid rgba(39,39,87,.09);color:#65647b;font-size:.84rem}
+
+/* Testimonials page */
+.testimonial-hero{background:linear-gradient(135deg,#f7f7fb 0%,#fff 72%)}
+.testimonial-grid-page{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.testimonial-card{display:flex;flex-direction:column;min-height:330px;padding:28px;border-radius:26px;background:#fff;border:1px solid rgba(39,39,87,.11);box-shadow:0 18px 44px rgba(15,14,71,.055);transition:.25s ease}
+.testimonial-card:hover{transform:translateY(-4px);box-shadow:0 24px 54px rgba(15,14,71,.09)}
+.testimonial-mark{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#f0f0f8;color:#505081;font-size:.7rem;font-weight:800}
+.testimonial-card blockquote{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.8rem;line-height:1.12;color:#0f0e47;margin:26px 0 30px}
+.testimonial-card>div{margin-top:auto;display:grid;gap:2px}
+.testimonial-card strong{font-size:.78rem;color:#272757}.testimonial-card>div span{font-size:.68rem;color:#7b7a90}
+.testimonial-card>a{margin-top:18px;font-size:.69rem;font-weight:700;color:#505081}
+.testimonial-cta{display:flex;justify-content:space-between;align-items:center;gap:28px;padding:32px 36px;border-radius:28px;background:#fff;border:1px solid rgba(39,39,87,.10)}
+.testimonial-cta h2{font-size:2.3rem;margin-bottom:6px}.testimonial-cta p{margin:0;color:#6a6982}.testimonial-cta-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* Internal page navigation/cards recolour */
+.subhero{background:linear-gradient(135deg,#f7f7fb 0%,#fff 72%)}
+.subhero:after{border-color:rgba(80,80,129,.14)}
+.breadcrumbs,.breadcrumbs a{color:#6e6d83}
+.month-nav-wrap{background:rgba(255,255,255,.94);border-color:rgba(39,39,87,.10)}
+.month-progress button{background:#f3f3f9;color:#66657b}
+.month-progress button:hover,.month-progress button.active{background:#272757;color:#fff}
+.month-kicker{color:#505081}
+.month-content .weather{border-left-color:#8686ac;background:#f3f3f9;color:#272757}
+.month-source a{color:#505081}
+.month-controls button:hover{background:#272757;color:#fff}
+.region-block summary{color:#0f0e47}.region-block summary:after{color:#505081}
+.season-item{background:#f4f4fa}.season-item b{color:#272757}
+.guide-search input{border-color:#d7d7e5}.guide-search input:focus{border-color:#8686ac;box-shadow:0 0 0 3px rgba(134,134,172,.12)}
+.highlight{background:#e7e7f2}
+
+/* Gift / contact / footer */
+.gift-shell{background:linear-gradient(135deg,#f3f3f9,#fafafe 58%,#fff);border-color:rgba(39,39,87,.08)}
+.contact-list a{color:#272757}
+.field input,.field select,.field textarea{border-color:#d8d8e5;background:#fff;color:#171633}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#8686ac;box-shadow:0 0 0 3px rgba(134,134,172,.12)}
+.footer{background:#0f0e47;color:#efeff8}
+.footer h4{color:#a9a9ca}.footer a,.footer p{color:#d5d5e6}.footer-bottom{color:#aaa9c1;border-color:rgba(255,255,255,.10)}
+.footer-logo{background:transparent!important;padding:0!important;border-radius:0!important;filter:none!important}
+
+/* Planner */
+.planner-dialog{box-shadow:0 30px 100px rgba(15,14,71,.24)}
+.planner-aside{background:linear-gradient(155deg,#8686ac 0%,#505081 45%,#272757 72%,#0f0e47 100%)!important}
+.planner-aside h2 em{color:#dedeee}.planner-step-dot.active,.planner-step-dot.current{background:#fff;color:#272757}
+.planner-form{background:linear-gradient(180deg,#fff,#f8f8fc)!important}
+.planner-progress span{background:linear-gradient(90deg,#8686ac,#272757)!important}
+.planner-progress-copy span,.planner-question-kicker{color:#505081!important}.planner-progress-copy strong{color:#626178}
+.planner-field>span{color:#272757}.planner-field input,.planner-field select,.planner-field textarea{border-color:#d7d7e4;background:#fff;color:#171633}
+.planner-field input:focus,.planner-field select:focus,.planner-field textarea:focus{border-color:#8686ac;box-shadow:0 0 0 3px rgba(134,134,172,.11)}
+.planner-choice{border-color:#d7d7e4;background:#fff;color:#5f5e75}.planner-choice>span{color:#505081}.planner-choice:hover{border-color:#aaaacd;background:#fbfbfe}.planner-choice.selected{border-color:#8686ac;background:linear-gradient(145deg,#f0f0f8,#fdfdff);box-shadow:0 8px 22px rgba(39,39,87,.08)}
+.planner-budget-grid span{border-color:#d7d7e4;background:#fff;color:#272757}.planner-budget-grid input:checked+span{background:#272757;color:#fff;border-color:#272757;box-shadow:0 8px 22px rgba(39,39,87,.16)}
+.planner-toggle{border-color:#d7d7e4;background:#fff}.planner-toggle-switch{background:#dcdcec}.planner-toggle input:checked+.planner-toggle-switch{background:#505081}.planner-toggle strong{color:#0f0e47}.planner-consent input{accent-color:#505081}.planner-back{border-color:#c9c9dd;color:#272757}.planner-next,.planner-submit{background:linear-gradient(135deg,#8686ac,#272757);box-shadow:0 10px 28px rgba(39,39,87,.18)}
+
+@media(max-width:1000px){
+  .sound-editorial,.wedding-abroad-shell,.faq-shell{grid-template-columns:1fr}
+  .faq-intro{position:relative;top:auto}
+  .testimonial-grid-page{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .sound-familiar-section{padding:44px 0!important}
+  .sound-grid-premium{grid-template-columns:1fr}
+  .sound-grid-premium .sound-card{min-height:auto}
+  .wedding-abroad-shell{padding:28px 22px}
+  .destination-wedding-section,.faq-section{padding:58px 0}
+  .testimonial-grid-page{grid-template-columns:1fr}
+  .testimonial-card{min-height:auto}
+  .testimonial-cta{align-items:flex-start;flex-direction:column;padding:26px 22px}
+  .testimonial-cta-actions{width:100%}.testimonial-cta-actions .btn{width:100%}
+}
