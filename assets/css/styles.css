@@ -1790,3 +1790,76 @@ h1,h2,h3,h4{color:var(--brown-dark)}
   .photo-story-grid,.destination-photo-grid{grid-template-columns:1fr;margin-top:26px}
   .photo-story-copy,.destination-photo-copy{padding:16px 16px 18px}
 }
+
+
+/* ===== V16: richer imagery + Blue Eclipse tailor-made section ===== */
+.tailor-made-section{
+  background:linear-gradient(145deg,#0f0e47 0%,#272757 58%,#505081 100%)!important;
+  color:#f8f8ff!important;
+  overflow:hidden;
+}
+.tailor-made-section .eyebrow{color:#c9c9e4!important}
+.tailor-made-section .eyebrow:before{background:#8686ac!important}
+.tailor-made-head h2,.tailor-made-section .tailor-path h3{color:#fff!important}
+.tailor-made-head h2 .gold{color:#c8c8e2!important}
+.tailor-made-head p{color:#d8d8e9!important}
+.tailor-image-strip{display:grid;grid-template-columns:1.15fr .85fr .95fr;gap:14px;margin:30px 0 18px}
+.tailor-image-strip figure{margin:0;overflow:hidden;border-radius:22px;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.16);background:#272757}
+.tailor-image-strip img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}
+.tailor-image-strip figure:hover img{transform:scale(1.035)}
+.tailor-path{
+  background:rgba(255,255,255,.09)!important;
+  border:1px solid rgba(255,255,255,.16)!important;
+  box-shadow:none!important;
+  color:#fff!important;
+  backdrop-filter:blur(10px);
+}
+.tailor-path:hover{background:rgba(255,255,255,.13)!important;border-color:rgba(200,200,226,.35)!important;box-shadow:0 18px 44px rgba(8,7,44,.18)!important}
+.tailor-path>span{background:#8686ac!important;color:#0f0e47!important}
+.tailor-path small{color:#c7c7e1!important}
+.tailor-path p{color:#d7d7e8!important}
+.tailor-cta{background:rgba(15,14,71,.70)!important;border:1px solid rgba(255,255,255,.15)!important;box-shadow:0 20px 54px rgba(8,7,44,.20)!important}
+.tailor-cta small{color:#bdbdda!important}
+.tailor-cta strong{color:#fff!important}
+.tailor-cta p{color:#d6d6e7!important}
+.tailor-cta .btn-gold{background:linear-gradient(135deg,#8686ac,#505081)!important}
+
+.region-side-image{margin:18px 0 14px;border-radius:20px;overflow:hidden;aspect-ratio:4/3;background:#eeeef7;border:1px solid rgba(39,39,87,.10);box-shadow:0 14px 34px rgba(15,14,71,.07)}
+.region-side-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.region-side-image:hover img{transform:scale(1.035)}
+
+.romance-image-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.romance-image-card{overflow:hidden;border-radius:24px;background:#fff;border:1px solid rgba(39,39,87,.12);box-shadow:0 16px 40px rgba(15,14,71,.055);transition:.25s ease}
+.romance-image-card:hover{transform:translateY(-4px);box-shadow:0 24px 52px rgba(15,14,71,.09)}
+.romance-image-wrap{aspect-ratio:16/10;overflow:hidden;background:#eeeef7}
+.romance-image-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}
+.romance-image-card:hover img{transform:scale(1.04)}
+.romance-image-copy{padding:18px 20px 21px}
+.romance-image-copy small{display:block;color:#505081;text-transform:uppercase;letter-spacing:.14em;font-size:.62rem;font-weight:800;margin-bottom:8px}
+.romance-image-copy h3{font-size:1.65rem;color:#0f0e47;margin:0 0 8px}
+.romance-image-copy p{margin:0;color:#68677d;font-size:.76rem}
+
+.honeymoon-moments-section{padding-top:54px!important;padding-bottom:62px!important}
+.honeymoon-moments-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:38px;align-items:end;margin-bottom:24px}
+.honeymoon-moments-head .eyebrow{grid-column:1/-1;margin-bottom:0}
+.honeymoon-moments-head h2{font-size:clamp(2.5rem,4.2vw,4rem);max-width:720px;margin:0;color:#0f0e47}
+.honeymoon-moments-head p{margin:0;color:#6a6982;max-width:620px}
+.honeymoon-moments-band{display:grid;grid-template-columns:1.15fr .85fr 1fr;gap:14px}
+.honeymoon-moments-band figure{margin:0;border-radius:24px;overflow:hidden;aspect-ratio:16/9;background:#eeeef7}
+.honeymoon-moments-band img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}
+.honeymoon-moments-band figure:hover img{transform:scale(1.035)}
+
+@media(max-width:1000px){
+  .romance-image-grid{grid-template-columns:1fr 1fr}
+  .romance-image-card:last-child{grid-column:1/-1}
+  .honeymoon-moments-head{grid-template-columns:1fr;gap:10px}
+  .tailor-image-strip,.honeymoon-moments-band{grid-template-columns:1fr 1fr}
+  .tailor-image-strip figure:first-child,.honeymoon-moments-band figure:first-child{grid-column:1/-1}
+  .region-side-image{max-width:480px}
+}
+@media(max-width:700px){
+  .romance-image-grid,.tailor-image-strip,.honeymoon-moments-band{grid-template-columns:1fr}
+  .romance-image-card:last-child,.tailor-image-strip figure:first-child,.honeymoon-moments-band figure:first-child{grid-column:auto}
+  .honeymoon-moments-section{padding-top:44px!important;padding-bottom:50px!important}
+  .tailor-image-strip{margin-top:22px}
+}
