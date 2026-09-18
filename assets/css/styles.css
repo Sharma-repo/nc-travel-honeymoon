@@ -1756,3 +1756,37 @@ h1,h2,h3,h4{color:var(--brown-dark)}
   .testimonial-cta{align-items:flex-start;flex-direction:column;padding:26px 22px}
   .testimonial-cta-actions{width:100%}.testimonial-cta-actions .btn{width:100%}
 }
+
+
+/* ===== Visual enrichment: honeymoon & destination imagery ===== */
+.honeymoon-gallery-section,.destination-photo-section{padding-top:74px;padding-bottom:74px}
+.photo-story-grid,.destination-photo-grid{display:grid;gap:18px;margin-top:34px}
+.photo-story-grid{grid-template-columns:repeat(4,1fr)}
+.destination-photo-grid{grid-template-columns:repeat(5,1fr)}
+.photo-story-card,.destination-photo-card{
+  display:flex;flex-direction:column;gap:0;border:1px solid rgba(39,39,87,.12);border-radius:26px;overflow:hidden;background:#fff;
+  box-shadow:0 16px 40px rgba(15,14,71,.055);transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.photo-story-card:hover,.destination-photo-card:hover{transform:translateY(-4px);box-shadow:0 24px 54px rgba(15,14,71,.09);border-color:rgba(80,80,129,.24)}
+.destination-photo-card{padding:0;cursor:pointer;text-align:left;color:inherit}
+.destination-photo-card:focus-visible,.photo-story-card:focus-visible{outline:3px solid rgba(134,134,172,.42);outline-offset:2px}
+.photo-story-image,.destination-photo-image{position:relative;overflow:hidden;background:#e8e8f3}
+.photo-story-image{aspect-ratio:4/4.5}
+.destination-photo-image{aspect-ratio:4/3.9}
+.photo-story-image img,.destination-photo-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}
+.photo-story-card:hover img,.destination-photo-card:hover img{transform:scale(1.04)}
+.photo-story-copy,.destination-photo-copy{padding:18px 18px 20px}
+.photo-story-copy small,.destination-photo-copy small{display:block;margin-bottom:8px;color:#505081;font-size:.68rem;text-transform:uppercase;letter-spacing:.16em;font-weight:800}
+.photo-story-copy h3,.destination-photo-copy h3{font-size:1.5rem;line-height:1.08;margin:0 0 8px;color:#0f0e47}
+.photo-story-copy p,.destination-photo-copy p{margin:0;font-size:.76rem;line-height:1.6;color:#64637a}
+.destination-photo-copy h3{font-size:1.35rem}
+
+@media(max-width:1100px){
+  .photo-story-grid{grid-template-columns:repeat(2,1fr)}
+  .destination-photo-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:700px){
+  .honeymoon-gallery-section,.destination-photo-section{padding-top:56px;padding-bottom:56px}
+  .photo-story-grid,.destination-photo-grid{grid-template-columns:1fr;margin-top:26px}
+  .photo-story-copy,.destination-photo-copy{padding:16px 16px 18px}
+}
