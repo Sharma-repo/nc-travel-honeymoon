@@ -1863,3 +1863,50 @@ h1,h2,h3,h4{color:var(--brown-dark)}
   .honeymoon-moments-section{padding-top:44px!important;padding-bottom:50px!important}
   .tailor-image-strip{margin-top:22px}
 }
+
+
+/* ===== V17 homepage image-section refinements ===== */
+.honeymoon-choice-section{padding:76px 0;background:#fff}
+.honeymoon-choice-head{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:end;margin-bottom:30px}
+.honeymoon-choice-head h2{font-size:clamp(2.8rem,4.7vw,4.6rem);max-width:760px;margin:0;color:#0f0e47;line-height:.98}
+.honeymoon-choice-head>p{max-width:620px;margin:0;color:#67667d;font-size:.9rem;line-height:1.75}
+.honeymoon-choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.honeymoon-choice-card{overflow:hidden;border-radius:26px;background:#fff;border:1px solid rgba(39,39,87,.11);box-shadow:0 16px 42px rgba(15,14,71,.055);transition:.28s ease}
+.honeymoon-choice-card:hover{transform:translateY(-4px);box-shadow:0 24px 58px rgba(15,14,71,.09)}
+.honeymoon-choice-image{aspect-ratio:4/3;overflow:hidden;background:#ededf5}
+.honeymoon-choice-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}
+.honeymoon-choice-card:hover .honeymoon-choice-image img{transform:scale(1.035)}
+.honeymoon-choice-copy{display:grid;grid-template-columns:38px 1fr;gap:13px;padding:19px 20px 22px;align-items:start}
+.honeymoon-choice-copy>span{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#efeff7;color:#505081;font-size:.66rem;font-weight:800}
+.honeymoon-choice-copy h3{font-size:1.55rem;line-height:1.05;margin:2px 0 6px;color:#0f0e47}
+.honeymoon-choice-copy p{font-size:.76rem;line-height:1.6;color:#69687d;margin:0}
+
+.honeymoon-difference-section{padding:74px 0;background:linear-gradient(135deg,#f8f8fc 0%,#fff 70%)}
+.honeymoon-difference-shell{display:grid;grid-template-columns:.92fr 1.08fr;gap:54px;align-items:center}
+.honeymoon-difference-image{height:560px;border-radius:32px;overflow:hidden;box-shadow:0 24px 70px rgba(15,14,71,.10);background:#ececf5}
+.honeymoon-difference-image img{width:100%;height:100%;object-fit:cover;object-position:center 67%;display:block}
+.honeymoon-difference-copy h2{font-size:clamp(2.8rem,4.8vw,4.55rem);line-height:.98;max-width:760px;margin-bottom:18px;color:#0f0e47}
+.honeymoon-difference-copy>p{font-size:.9rem;color:#66657b;line-height:1.75;max-width:720px;margin-bottom:24px}
+.honeymoon-difference-points{display:grid;gap:11px;margin:0 0 24px}
+.honeymoon-difference-points>div{display:grid;grid-template-columns:165px 1fr;gap:18px;padding:14px 0;border-top:1px solid rgba(39,39,87,.10)}
+.honeymoon-difference-points>div:last-child{border-bottom:1px solid rgba(39,39,87,.10)}
+.honeymoon-difference-points strong{font-size:.78rem;color:#272757}
+.honeymoon-difference-points span{font-size:.76rem;color:#6c6b80;line-height:1.55}
+
+@media(max-width:1000px){
+  .honeymoon-choice-head,.honeymoon-difference-shell{grid-template-columns:1fr;gap:26px}
+  .honeymoon-choice-grid{grid-template-columns:repeat(2,1fr)}
+  .honeymoon-choice-card:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}
+  .honeymoon-choice-card:last-child .honeymoon-choice-image{aspect-ratio:auto;min-height:280px}
+  .honeymoon-difference-image{height:500px}
+}
+@media(max-width:700px){
+  .honeymoon-choice-section,.honeymoon-difference-section{padding:56px 0}
+  .honeymoon-choice-head{margin-bottom:24px}
+  .honeymoon-choice-grid{grid-template-columns:1fr}
+  .honeymoon-choice-card:last-child{grid-column:auto;display:block}
+  .honeymoon-choice-card:last-child .honeymoon-choice-image{aspect-ratio:4/3;min-height:0}
+  .honeymoon-difference-image{height:420px;border-radius:24px}
+  .honeymoon-difference-copy h2,.honeymoon-choice-head h2{font-size:clamp(2.55rem,12vw,3.45rem)}
+  .honeymoon-difference-points>div{grid-template-columns:1fr;gap:4px}
+}
